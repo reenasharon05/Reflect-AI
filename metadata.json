@@ -1,0 +1,6 @@
+{
+  "name": "Gemini Reflect & Journal",
+  "description": "User-authenticated personal reflection and journaling companion powered by Gemini AI and Cloud Firestore.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+:root {
+  /* Light theme — preserved exactly as-is */
+  --bg-app: #F5F5F0;
+  --bg-surface: #FDFCF9;
+  --bg-elevated: #EDEBE4;
+  --bg-elevated-hover: #E4E2D8;
+  --bg-input: #FDFCF9;
+  --border-main: #D9D7CE;
+  --border-subtle: #E8E6DF;
+  --text-primary: #2C2C24;
+  --text-secondary: #706E64;
+  --text-muted: #8A887D;
+  --accent-primary: #5A5A40;
+  --accent-hover: #4A4A30;
+  --accent-text: #FDFCF9;
+  --accent-subtle: #EDEBE4;
+  --chart-grid: #EDEBE4;
+  --chart-axis: #D9D7CE;
+  --chart-text: #706E64;
+  --chart-baseline: #A19F95;
+  --chart-area-start: #5A5A40;
+  --chart-area-end: #EDEBE4;
+}
+
+.dark {
+  /* Dark theme — derived to match the same calm, warm, journal-like feeling:
+     - Warm deep neutral (dark charcoal-brown/green based on light theme olive #5A5A40)
+     - Lightened olive/khaki accent with WCAG AA compliant contrast (> 4.5:1)
+     - Slightly lighter warm dark tone for card/surface, mirroring background-vs-surface distinction
+  */
+  --bg-app: #151612;
+  --bg-surface: #1E2019;
+  --bg-elevated: #282B21;
+  --bg-elevated-hover: #33362A;
+  --bg-input: #23261D;
+  --border-main: #383B2E;
+  --border-subtle: #2A2C21;
+  --text-primary: #F2EFE8;
+  --text-secondary: #B8B5A7;
+  --text-muted: #868477;
+  --accent-primary: #969871;
+  --accent-hover: #AAAC84;
+  --accent-text: #151612;
+  --accent-subtle: #282B1E;
+  --chart-grid: #282B21;
+  --chart-axis: #383B2E;
+  --chart-text: #B8B5A7;
+  --chart-baseline: #868477;
+  --chart-area-start: #969871;
+  --chart-area-end: #282B21;
+}
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  h1, h2, h3, .font-serif-title {
+    font-family: 'Lora', Georgia, serif;
+  }
+}
+
+/* Theme bridging for Tailwind utility classes */
+.dark body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+}
+
+.dark .bg-\[\#F5F5F0\] {
+  background-color: var(--bg-app) !important;
+}
+
+.dark .bg-\[\#FDFCF9\] {
+  background-color: var(--bg-surface) !important;
+}
+
+.dark .bg-\[\#FDFCF9\]\/95 {
+  background-color: color-mix(in srgb, var(--bg-surface) 95%, transparent) !important;
+}
+
+.dark .bg-\[\#FDFCF9\]\/90 {
+  background-color: color-mix(in srgb, var(--bg-surface) 90%, transparent) !important;
+}
+
+.dark .bg-\[\#EDEBE4\] {
+  background-color: var(--bg-elevated) !important;
+}
+
+.dark .bg-\[\#EDEBE4\]\/60 {
+  background-color: color-mix(in srgb, var(--bg-elevated) 60%, transparent) !important;
+}
+
+.dark .bg-\[\#EDEBE4\]\/40 {
+  background-color: color-mix(in srgb, var(--bg-elevated) 40%, transparent) !important;
+}
+
+.dark .bg-\[\#E4E2D8\] {
+  background-color: var(--bg-elevated-hover) !important;
+}
+
+.dark .hover\:bg-\[\#EDEBE4\]:hover {
+  background-color: var(--bg-elevated) !important;
+}
+
+.dark .hover\:bg-\[\#E4E2D8\]:hover {
+  background-color: var(--bg-elevated-hover) !important;
+}
+
+.dark .hover\:bg-white:hover {
+  background-color: var(--bg-elevated-hover) !important;
+}
+
+.dark .focus\:bg-white:focus {
+  background-color: var(--bg-surface) !important;
+}
+
+.dark .text-\[\#2C2C24\] {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-\[\#333333\] {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-\[\#706E64\] {
+  color: var(--text-secondary) !important;
+}
+
+.dark .text-\[\#555550\] {
+  color: var(--text-secondary) !important;
+}
+
+.dark .text-\[\#8A887D\] {
+  color: var(--text-muted) !important;
+}
+
+.dark .text-\[\#A19F95\] {
+  color: var(--text-muted) !important;
+}
+
+.dark .text-\[\#5A5A40\] {
+  color: var(--accent-primary) !important;
+}
+
+.dark .text-\[\#4A4A30\] {
+  color: var(--accent-hover) !important;
+}
+
+.dark .hover\:text-\[\#2C2C24\]:hover {
+  color: var(--text-primary) !important;
+}
+
+.dark .border-\[\#D9D7CE\] {
+  border-color: var(--border-main) !important;
+}
+
+.dark .border-\[\#D9D7CE\]\/60 {
+  border-color: color-mix(in srgb, var(--border-main) 60%, transparent) !important;
+}
+
+.dark .border-\[\#D9D7CE\]\/50 {
+  border-color: color-mix(in srgb, var(--border-main) 50%, transparent) !important;
+}
+
+.dark .border-\[\#E8E6DF\] {
+  border-color: var(--border-subtle) !important;
+}
+
+.dark .border-\[\#B7B7A4\] {
+  border-color: var(--border-main) !important;
+}
+
+.dark .hover\:border-\[\#B7B7A4\]:hover {
+  border-color: var(--accent-primary) !important;
+}
+
+.dark .bg-\[\#5A5A40\] {
+  background-color: var(--accent-primary) !important;
+  color: var(--accent-text) !important;
+}
+
+.dark .hover\:bg-\[\#4A4A30\]:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

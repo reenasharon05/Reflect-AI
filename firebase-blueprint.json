@@ -1,0 +1,87 @@
+{
+  "entities": {
+    "Reflection": {
+      "title": "Reflection",
+      "description": "A user-authored journal reflection entry with multi-turn AI dialogue and sentiment metadata",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique reflection document identifier"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Firebase Authentication UID of the owner"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the reflection entry",
+          "maxLength": 500
+        },
+        "content": {
+          "type": "string",
+          "description": "Body text of the journal reflection",
+          "maxLength": 20000
+        },
+        "summary": {
+          "type": "string",
+          "description": "AI-generated executive summary of the reflection",
+          "maxLength": 3000
+        },
+        "tags": {
+          "type": "array",
+          "description": "Tags associated with the reflection themes"
+        },
+        "mood": {
+          "type": "string",
+          "description": "User-selected mood state (e.g., thoughtful, grateful, calm)"
+        },
+        "sentimentScore": {
+          "type": "number",
+          "description": "Gemini-analyzed sentiment score on a 1-5 scale (1=Very Heavy/Negative, 3=Neutral/Reflective, 5=Very Positive/Joyful)"
+        },
+        "sentimentLabel": {
+          "type": "string",
+          "description": "Descriptive sentiment category (Positive, Neutral, Negative, etc.)"
+        },
+        "sentimentReasoning": {
+          "type": "string",
+          "description": "Brief rationale for the sentiment breakdown for user self-awareness",
+          "maxLength": 1000
+        },
+        "location": {
+          "type": "object",
+          "description": "Optional opt-in geolocation metadata attached by user with lat, lng, placeName, and address",
+          "properties": {
+            "lat": { "type": "number", "description": "Latitude coordinate" },
+            "lng": { "type": "number", "description": "Longitude coordinate" },
+            "placeName": { "type": "string", "description": "Display name of the location or point of interest" },
+            "address": { "type": "string", "description": "Optional formatted address" }
+          },
+          "required": ["lat", "lng", "placeName"]
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Timestamp when reflection was created (milliseconds)"
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Timestamp when reflection was last modified (milliseconds)"
+        },
+        "messages": {
+          "type": "array",
+          "description": "Multi-turn Gemini dialogue messages associated with this reflection"
+        }
+      },
+      "required": ["id", "userId", "title", "content", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/reflections/{reflectionId}": {
+      "schema": {
+        "$ref": "#/entities/Reflection"
+      },
+      "description": "Private, user-isolated collection of reflections and AI dialogues"
+    }
+  }
+}
