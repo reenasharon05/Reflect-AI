@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Gemini Reflect & Journal — Cloud Run AI Application
+# REFLECT AI
+## Gemini Reflect & Journal — Cloud Run AI Application
 
 A user-authenticated reflection and journaling web application powered by **Google Gemini 3.6 Flash** and **Cloud Firestore**, engineered with zero-hardcoded secrets, strict user-isolated storage rules, and automated Gemini model resilience.
 
@@ -185,7 +184,7 @@ gcloud run services update gemini-reflect-app \
 
 =======
 # Ideathon-APAC
->>>>>>> 181db4b902ded9fa84ea3f1cfcd4311fb9710bc1
+### #AccelerateAIwithCloudRun 
 =======
 <div align="center">
 
